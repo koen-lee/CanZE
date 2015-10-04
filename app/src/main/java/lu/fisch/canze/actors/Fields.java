@@ -451,7 +451,7 @@ public class Fields implements MessageListener {
 
     public Field getBySID(String sid)
     {
-        if( sid == null || fieldsBySid.containsKey(sid))
+        if( sid == null || !fieldsBySid.containsKey(sid))
             return null;
         return fieldsBySid.get(sid);
     }
@@ -512,7 +512,11 @@ public class Fields implements MessageListener {
     
     public static void main(String[] args)
     {
-        
+        Fields allfields = Fields.getInstance();
+        final String SID_MaxCharge = "7bb.6101.336";
+
+        Field maxCharge = allfields.getBySID(SID_MaxCharge);
+        maxCharge.toString();
     }
     
 }
